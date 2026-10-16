@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBrand | Digital Solutions</title>
+
+    <style>
+        /* 1. RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            color: #263248;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* 2. NAVIGATION */
+        header {
+            background: #151c26;
+            color: white;
+            padding: 1rem 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo span {
+            color: #00c2cc;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00c2cc;
+        }
+
+        /* 3. HERO SECTION */
+        .hero {
+            min-height: 570px;
+            padding: 6rem 6%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(9, 20, 30, 0.92),
+                    rgba(9, 20, 30, 0.35)
+                ),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #00c2cc;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            max-width: 700px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: #00c2cc;
+        }
+
+        .hero p {
+            max-width: 560px;
+            font-size: 1.15rem;
+            color: #e3e9ef;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00b8c2;
+            color: white;
+            padding: 0.9rem 1.7rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: #008e97;
+            transform: translateY(-3px);
+        }
+
+        /* 4. GENERAL SECTION STYLES */
+        section {
+            padding: 5rem 6%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #142035;
+            margin-bottom: 0.7rem;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #64748b;
+        }
+
+        /* 5. SERVICES CARDS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid #edf1f5;
+            box-shadow: 0 8px 30px rgba(20, 32, 53, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 35px rgba(20, 32, 53, 0.12);
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #ddf8fa;
+            display: grid;
+            place-items: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: #142035;
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 1.2rem;
+        }
+
+        .learn-more {
+            color: #009da7;
+            font-weight: bold;
+        }
+
+        /* 6. ABOUT SECTION */
+        .about {
+            background: #effbfa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-image img {
+            display: block;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(20, 32, 53, 0.12);
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            color: #142035;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text > p {
+            color: #52627a;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat h3 {
+            color: #009da7;
+            font-size: 1.8rem;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* 7. CONTACT CALL TO ACTION */
+        .contact {
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(
+                    rgba(8, 39, 51, 0.78),
+                    rgba(8, 39, 51, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 1.8rem;
+            color: #e3edf0;
+        }
+
+        /* 8. FOOTER */
+        footer {
+            background: #151c26;
+            color: #c0cad5;
+            padding: 2rem 6%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* 9. RESPONSIVE DESIGN */
+        @media (max-width: 800px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 320px;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            header {
+                padding: 1rem 5%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3.5rem 5%;
+            }
+
+            .hero {
+                min-height: 480px;
+                padding: 4rem 5%;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. HEADER AND NAVIGATION -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                My<span>Brand</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">
+                Building Better Digital Solutions
+            </p>
+
+            <h1>
+                Welcome to <span>My Website</span>
+            </h1>
+
+            <p>
+                We craft high-quality digital experiences
+                that help your business grow and succeed
+                in the modern world.
+            </p>
+
+            <a href="#contact" class="btn">
+                Get Started &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section id="services">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="eyebrow">Our Services</p>
+                <h2>What We Offer</h2>
+                <p>
+                    We provide digital solutions to help
+                    your business grow and stand out online.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Web Design</h3>
+                    <p>
+                        Beautiful, modern layouts designed
+                        to match your brand and your users'
+                        needs.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Learn More &rarr;
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="service-icon">💻</div>
+                    <h3>Development</h3>
+                    <p>
+                        Fast, reliable and responsive
+                        websites that work across devices.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Learn More &rarr;
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="service-icon">📈</div>
+                    <h3>SEO Optimization</h3>
+                    <p>
+                        Improve your website's visibility
+                        and help more people discover
+                        your business.
+                    </p>
+                    <a href="#contact" class="learn-more">
+                        Learn More &rarr;
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="container about-content">
+
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
+                    alt="Modern office workspace"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="about-text">
+                <p class="eyebrow">About Us</p>
+
+                <h2>
+                    Turning Ideas Into Digital Reality
+                </h2>
+
+                <p>
+                    We are a team of designers and developers
+                    passionate about transforming ideas into
+                    useful digital experiences.
+                </p>
+
+                <p>
+                    From simple landing pages to complete
+                    websites, we focus on thoughtful design,
+                    accessible layouts and reliable code.
+                </p>
+
+                <a href="#contact" class="btn">
+                    Work With Us &rarr;
+                </a>
+
+                <div class="stats">
+                    <div class="stat">
+                        <h3>100+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>200+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Build Something Great?</h2>
+
+            <p>
+                Have an idea for your next website?
+                Let's turn your vision into reality.
+                Get in touch and start planning your project.
+            </p>
+
+            <a
+                href="mailto:hello@example.com"
+                class="btn"
+            >
+                Contact Us &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="logo">
+                My<span>Brand</span>
+            </a>
+
+            <p>
+                &copy; 2026 MyBrand. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
